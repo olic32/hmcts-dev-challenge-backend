@@ -1,10 +1,55 @@
-# HMCTS Dev Test Backend
-This will be the backend for the brand new HMCTS case management system. As a potential candidate we are leaving
-this in your hands. Please refer to the brief for the complete list of tasks! Complete as much as you can and be
-as creative as you want.
+# Task API Documentation
 
-You should be able to run `./gradlew build` to start with to ensure it builds successfully. Then from that you
-can run the service in IntelliJ (or your IDE of choice) or however you normally would.
+## Base URL
+`/`
 
-There is an example endpoint provided to retrieve an example of a case. You are free to add/remove fields as you
-wish.
+---
+
+## Controller: TaskController
+
+Manages creation of tasks in the system.
+
+---
+
+## Endpoint: Create Task
+
+- **URL:** `/create-task`
+- **Method:** `POST`
+- **Description:** Creates a new task with default status and a calculated due date.
+
+### Request
+
+- **Headers:**  
+  `Content-Type: application/json`
+
+- **Body Parameters:**
+
+| Field         | Type   | Required | Description                         |
+|---------------|--------|----------|-------------------------------------|
+| `title`       | String | Yes      | Title of the task.                  |
+| `description` | String | No       | Detailed description of the task.   |
+
+**Example Request Body:**
+```json
+{
+  "title": "Complete Project Report",
+  "description": "Draft and submit the project report by the due date."
+}
+```
+
+**Response:**
+
+Status Code: 200 OK
+
+Body: JSON object representing the created task.
+
+Example Response Body:
+```json
+{
+  "id": 1,
+  "title": "Complete Project Report",
+  "description": "Draft and submit the project report by the due date.",
+  "status": "PENDING",
+  "dueDate": "2025-12-12T14:30:00"
+}
+```
