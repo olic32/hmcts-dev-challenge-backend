@@ -1,3 +1,13 @@
+# My Backend for the HMCTS dev challenge
+
+I used the https://github.com/hmcts/hmcts-dev-test-backend as an initial framework for my backend.
+
+Run ./gradlew build
+
+Then the Spring application. Ensure PostgreSQL is running locally, and has the DB created (demo_db) and configured as per the application.yaml (port and passwords etc)
+
+
+
 # Task API Documentation
 
 ## Base URL
